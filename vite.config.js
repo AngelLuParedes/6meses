@@ -4,6 +4,6 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   // './' funciona en GitHub Pages sin importar el nombre del repo
-  base: "./",
+  base: "/6meses/",
   plugins: [react(), tailwindcss()],
 });
