@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --color-wine: #4a1022;       /* fondo */
+  --color-blush: #f2c9cf;      /* apoyo / compañía (rosa palo) */
+  --color-lime: #b6f23a;       /* acento / destacar */
+  --color-ink: #f2c9cf;        /* texto sobre vino = rosa palo */
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --shadow-glass:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 1px 2px rgba(15, 0, 6, 0.35),
+    0 12px 32px -10px rgba(15, 0, 6, 0.55),
+    0 32px 64px -32px rgba(15, 0, 6, 0.65);
+  --shadow-tile:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 1px 2px rgba(15, 0, 6, 0.3),
+    0 8px 16px -8px rgba(15, 0, 6, 0.5);
+}
+
+html {
+  color-scheme: dark;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  background: var(--color-wine);
+}
+
+body {
+  min-height: 100dvh;
+  background: var(--color-wine);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-optical-sizing: auto;
+  font-feature-settings: "cv11", "ss01", "calt";
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+::selection {
+  background: var(--color-lime);
+  color: var(--color-wine);
+}
+
+button {
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  transform: translateZ(0);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-lime);
+  outline-offset: 3px;
+}
